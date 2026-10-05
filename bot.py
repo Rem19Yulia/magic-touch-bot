@@ -726,10 +726,17 @@ def main():
     application = (
         Application.builder()
         .token(TELEGRAM_BOT_TOKEN)
+        .request(request)
         .post_init(post_init)
         .build()
     )
 
+        # --- ДОБАВЬТЕ ЭТИ 4 СТРОЧКИ СЮДА ---
+    from telegram.request import HTTPXRequest
+    proxy_url = "http://51.158.123.13:8811"
+    request = HTTPXRequest(proxy=proxy_url)
+    # --- КОНЕЦ ДОБАВЛЕНИЯ ---
+    
     # Команды
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_cmd))

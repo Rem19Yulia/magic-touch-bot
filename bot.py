@@ -726,7 +726,7 @@ def main():
 
         # --- ДОБАВЬТЕ ЭТИ 4 СТРОЧКИ СЮДА ---
     from telegram.request import HTTPXRequest
-    proxy_url = "http://51.158.123.13:8811"
+    proxy_url = "http://142.54.237.34:4145"
     request = HTTPXRequest(proxy=proxy_url)
     # --- КОНЕЦ ДОБАВЛЕНИЯ ---
     

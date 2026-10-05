@@ -723,6 +723,13 @@ def main():
     flask_thread = Thread(target=run_flask)
     flask_thread.start()
 
+
+        # --- ДОБАВЬТЕ ЭТИ 4 СТРОЧКИ СЮДА ---
+    from telegram.request import HTTPXRequest
+    proxy_url = "http://51.158.123.13:8811"
+    request = HTTPXRequest(proxy=proxy_url)
+    # --- КОНЕЦ ДОБАВЛЕНИЯ ---
+    
     application = (
         Application.builder()
         .token(TELEGRAM_BOT_TOKEN)
@@ -730,12 +737,6 @@ def main():
         .post_init(post_init)
         .build()
     )
-
-        # --- ДОБАВЬТЕ ЭТИ 4 СТРОЧКИ СЮДА ---
-    from telegram.request import HTTPXRequest
-    proxy_url = "http://51.158.123.13:8811"
-    request = HTTPXRequest(proxy=proxy_url)
-    # --- КОНЕЦ ДОБАВЛЕНИЯ ---
     
     # Команды
     application.add_handler(CommandHandler("start", start))
